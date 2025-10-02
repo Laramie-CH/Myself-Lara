@@ -1,0 +1,904 @@
+/* Variables */
+:root {
+    --main-red: #c54545;
+    --secondary-red: #c21818;
+    --accent-yellow: #FFF9C4;
+    --purple: #7f0d00c3;
+    --light-pink: #F8BBD0;
+    --main-gradient: linear-gradient(135deg, var(--main-red) 0%, var(--purple) 100%);
+    --text-dark: #780505f8;
+    --text-light: #f8f9fa;
+    --section-padding: 5rem 0;
+    --transition: all 0.3s ease;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+    padding-top: 76px; /* Para compensar el navbar fijo */
+    line-height: 1.8;
+    background-color: #fafafa;
+    background-image: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #9d0e0ef0;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+h2.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--main-gradient);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    min-height: 600px;
+    background: var(--main-gradient);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section h1 {
+    font-size: 4.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.5rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-section p.lead {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1531913764164-f85c52d6e655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Botones */
+.btn-avocado {
+    background-color: var(--accent-yellow);
+    color: var(--main-red);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-avocado:hover {
+    background-color: white;
+    color: var(--main-red);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Secciones */
+section {
+    padding: var(--section-padding);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a subtle pattern to section backgrounds */
+#biografia, #contacto {
+    background-color: #fff;
+    background-image: url('https://www.transparenttextures.com/patterns/light-wool.png');
+}
+
+#galeria, #poesia {
+    background-color: #f9f9f9;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    color: var(--main-red);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--main-red);
+    margin: 20px auto;
+}
+
+/* Biografía */
+#biografia {
+    background-color: var(--accent-yellow);
+}
+
+.bio-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bio-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Galería */
+#galeria .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+#galeria .gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+#galeria .gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+#galeria .gallery-item .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(211, 47, 47, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+#galeria .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Poesía */
+#poesia {
+    background-color: #f9f9f9;
+}
+
+.poem-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    transition: var(--transition);
+    height: 100%;
+}
+
+.poem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.poem-card h3 {
+    color: var(--main-red);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.poem-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--main-red);
+}
+
+.poem-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Contacto */
+#contacto {
+    background: var(--main-gradient);
+    color: white;
+}
+
+.contact-info {
+    margin-bottom: 3rem;
+}
+
+.contact-info i {
+    font-size: 2rem;
+    color: var(--accent-yellow);
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .form-control {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #999;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.social-links a {
+    color: #999;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--accent-yellow);
+}
+
+/* Carrusel */
+.carousel {
+    margin-bottom: 4rem;
+}
+
+.carousel-item {
+    height: 600px;
+    background: var(--main-red);
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 100%;
+    filter: brightness(90%);
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-caption h2 {
+    color: var(--accent-yellow);
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-indicators {
+    bottom: -50px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--main-red);
+    border: 2px solid white;
+}
+
+.carousel-indicators button.active {
+    background: white;
+}
+
+/* Puzle */
+.puzzle-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.puzzle-board {
+    width: 400px;
+    height: 400px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--main-red);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.puzzle-piece {
+    background-size: 100% 100%;
+    background-position: 0 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.puzzle-piece:hover {
+    transform: scale(1.05);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.puzzle-piece::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+.puzzle-piece.empty {
+    background: transparent;
+    box-shadow: none;
+    cursor: default;
+}
+
+.moves-counter {
+    font-size: 1.2rem;
+    color: var(--avocado-brown);
+    font-weight: bold;
+    text-align: center;
+}
+
+.moves-counter span:first-child {
+    color: #666;
+}
+
+.puzzle-controls {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.puzzle-controls button {
+    margin: 0 0.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+    background: var(--main-red);
+    padding: 4rem 0;
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+    z-index: 0;
+}
+
+.hero-section h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-avocado {
+    background: white;
+    color: var(--secondary-red);
+    border: 2px solid white;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-avocado:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección Tipos */
+#types .card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    border: 3px solid var(--main-red);
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+#types .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-yellow);
+}
+
+/* Header de la tarjeta */
+#types .card-header {
+    padding: 1rem;
+    background: var(--main-red);
+    border-bottom: 2px solid var(--secondary-red);
+}
+
+#types .card-header h3 {
+    color: white;
+    font-weight: 600;
+    margin: 0;
+}
+
+#types .card-header i {
+    color: white;
+}
+
+/* Header de la tarjeta */
+#types .card-header {
+    padding: 1rem;
+    border-bottom: 2px solid var(--main-red);
+}
+
+#types .card-header h3 {
+    color: white;
+    font-weight: 600;
+}
+
+/* Imagen del aguacate */
+#types .card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#types .card:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenido de la tarjeta */
+#types .card-body {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+#types .info-group {
+    margin-top: 1.5rem;
+}
+
+#types .info-group p {
+    margin-bottom: 0.75rem;
+    color: var(--avocado-dark-brown);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+#types .info-group p i {
+    color: var(--main-red);
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+#types .info-group p.text-muted {
+    color: #666;
+    font-style: italic;
+}
+
+#types .card i {
+    color: var(--main-red);
+    transition: color 0.3s ease;
+}
+
+#types .card:hover i {
+    color: var(--accent-yellow);
+}
+
+/* Estilos para el contenido de la tarjeta */
+#types .card-body {
+    padding: 2rem;
+}
+
+#types .card h3 {
+    color: var(--secondary-red);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#types .info-group p {
+    margin-bottom: 0.75rem;
+    color: var(--secondary-red);
+    font-size: 0.95rem;
+}
+
+#types .info-group p i {
+    color: var(--avocado-green);
+}
+
+#types .info-group p.text-muted {
+    color: #666;
+}
+
+/* Sección Historias */
+#stories .card {
+    border: 2px solid var(--main-red);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+#stories .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#stories .story-header i {
+    margin-bottom: 1rem;
+}
+
+#stories .card-body {
+    padding: 1.5rem;
+}
+
+#stories .card-title {
+    color: var(--secondary-red);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#stories .card-text {
+    color: var(--secondary-red);
+    line-height: 1.6;
+    text-align: justify;
+}
+
+#stories .text-muted {
+    font-style: italic;
+    color: var(--main-red);
+    margin-top: 1rem;
+}
+
+#stories .story-footer {
+    margin-top: 1.5rem;
+}
+
+#stories .story-footer i {
+    font-size: 2rem;
+}
+
+/* Sección Nutricional */
+#nutrition {
+    background: var(--main-red);
+    color: white;
+    padding: 2rem 0;
+    border-radius: 15px;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#nutrition::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    z-index: 0;
+}
+
+#nutrition h2 {
+    color: var(--avocado-yellow);
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+#nutrition .card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 1rem;
+}
+
+#nutrition .lead {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--avocado-dark-brown);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Navbar */
+.bg-brown {
+    background-color: var(--avocado-dark-brown) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-brand i {
+    color: var(--avocado-yellow);
+    margin-right: 0.5rem;
+}
+
+.nav-link {
+    color: var(--avocado-light-green) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--avocado-yellow) !important;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-section, #types, #nutrition {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Emojis */
+.emoji {
+    font-size: 2rem;
+    color: var(--avocado-yellow);
+    margin: 0 0.5rem;
+}
+
+.avocado-card:hover {
+    transform: translateY(-5px);
+}
+
+.avocado-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.avocado-card h3 {
+    color: var(--avocado-brown);
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.avocado-card p {
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: var(--avocado-brown);
+}
+
+footer h3 {
+    color: var(--avocado-yellow);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes avocadoBounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.avocado-bounce {
+    animation: avocadoBounce 2s infinite;
+}
+
+/* Hero Carrusel (Inicio) */
+#inicio .carousel,
+#inicio .carousel-inner,
+#inicio .carousel-item {
+    height: 100vh;
+    min-height: 600px;
+}
+
+#inicio .carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(75%);
+}
+
+#inicio .carousel-caption {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 0.75rem;
+    background: rgba(0, 0, 0, 0.0); /* sin fondo sólido para un look más limpio */
+}
+
+#inicio .carousel-caption h1,
+#inicio .carousel-caption p {
+    text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+#inicio .carousel-indicators {
+    bottom: 20px;
+}
+
+#inicio .carousel-control-prev,
+#inicio .carousel-control-next {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+}
+
+#inicio .carousel-control-prev:hover,
+#inicio .carousel-control-next:hover {
+    background: rgba(255,255,255,0.4);
+}
